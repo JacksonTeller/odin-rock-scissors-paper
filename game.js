@@ -6,3 +6,12 @@ function computerPlay () {
 }
 
 console.log(computerPlay());
+
+function playRound(playerSelection, computerSelection) {
+    let playerSelection = playerSelection.toLowerCase();
+    let computerSelection = computerSelection.toLowerCase();
+
+    if (playerSelection === 'rock' && computerSelection === 'paper') {
+        return 'You lose! Paper beats Rock'
+    }
+}
