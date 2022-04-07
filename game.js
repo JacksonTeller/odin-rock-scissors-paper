@@ -25,3 +25,23 @@ function playRound(playerSelection, computerSelection) {
         return 'We have a tie!';
     }
 }
+
+function game() {
+    let playerPoints = 0, computerPoints = 0;
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt('Rock, Scissors or Paper?');
+        let computerSelection = computerPlay();
+        let result = playRound(playerSelection, computerSelection);
+        console.log(result);
+        if (result.slice(0,7) === 'You win') {
+            playerPoints++
+            console.log(`You: ${playerPoints}\nComputer: ${computerPoints}`)
+        } else if (result.slice(0,7) === 'You los') {
+            computerPoints++
+            console.log(`You: ${playerPoints}\nComputer: ${computerPoints}`)
+        }
+    }
+    (playerPoints > computerPoints) ? console.log('You win!') : console.log('You lose!')
+}
+
+game()
