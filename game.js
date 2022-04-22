@@ -1,3 +1,4 @@
+// function that returns rock, scissors or paper from computer
 const rsp = ['Rock', 'Scissors', 'Paper'];
 
 function computerPlay () {
@@ -5,6 +6,7 @@ function computerPlay () {
     return rsp[a]
 }
 
+//function that lets play a round of the game
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
@@ -26,21 +28,22 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+// the main game function
 function game() {
     let playerPoints = 0, computerPoints = 0;
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt('Rock, Scissors or Paper?');
-        let computerSelection = computerPlay();
-        let result = playRound(playerSelection, computerSelection);
-        console.log(result);
-        if (result.slice(0,7) === 'You win') {
-            playerPoints++
-            console.log(`You: ${playerPoints}\nComputer: ${computerPoints}`)
-        } else if (result.slice(0,7) === 'You los') {
-            computerPoints++
-            console.log(`You: ${playerPoints}\nComputer: ${computerPoints}`)
-        }
+    
+    let playerSelection = prompt('Rock, Scissors or Paper?');
+    let computerSelection = computerPlay();
+    let result = playRound(playerSelection, computerSelection);
+    console.log(result);
+    if (result.slice(0,7) === 'You win') {
+        playerPoints++
+    console.log(`You: ${playerPoints}\nComputer: ${computerPoints}`)
+    } else if (result.slice(0,7) === 'You los') {
+        computerPoints++
+        console.log(`You: ${playerPoints}\nComputer: ${computerPoints}`)
     }
+    
     (playerPoints > computerPoints) ? console.log('You win!') : console.log('You lose!')
 }
 
