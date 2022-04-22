@@ -31,12 +31,16 @@ function playRound(playerSelection, computerSelection) {
 
 // the main game function
 function game(playerSelection) {
-    let playerPoints = 0, computerPoints = 0;
+    //let playerPoints
+    let rndResult = document.querySelector(".rndResult");
+    rndResult.innerText = "Round result:";
     
+
     //let playerSelection = prompt('Rock, Scissors or Paper?');
     let computerSelection = computerPlay();
     let result = playRound(playerSelection, computerSelection);
-    console.log(result);
+    rndResult.innerText = rndResult.innerText + " " + result;
+
     if (result.slice(0,7) === 'You win') {
         playerPoints++
     console.log(`You: ${playerPoints}\nComputer: ${computerPoints}`)
@@ -44,9 +48,26 @@ function game(playerSelection) {
         computerPoints++
         console.log(`You: ${playerPoints}\nComputer: ${computerPoints}`)
     }
-    
-    (playerPoints > computerPoints) ? console.log('You win!') : console.log('You lose!')
 }
+/*
+let buttons = document.querySelectorAll("button");
+
+buttons.forEach(button => button.addEventListener('click', () => {
+    game(button);
+}));
+*/
+
+let playerPoints = document.querySelector('.humanScore');
+
+
+
+
+
+/*
+buttons.forEach(button => button.addEventListener('click', () => {
+    console.log(button.innerText)
+} ));
+*/
 
 /*
 let buttonR = document.querySelector('.r');
@@ -55,21 +76,5 @@ buttonR.addEventListener('click', playRound);
 */
 
 
-
-let buttons = document.querySelectorAll("button");
-
-buttons.forEach(button => button.addEventListener('click', () => {
-    game(button);
-}));
-
-/*
-buttons.forEach(button => button.addEventListener('click', () => {
-    console.log(button.innerText)
-} ));
-*/
-
-
-
-
-//console.log(result);
+console.log(playerPoints.innerText);
 
