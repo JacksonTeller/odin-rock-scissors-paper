@@ -58,15 +58,17 @@ buttonR.addEventListener('click', playRound);
 
 let buttons = document.querySelectorAll("button");
 
+buttons.forEach(button => button.addEventListener('click', () => {
+    game(button);
+}));
+
 /*
 buttons.forEach(button => button.addEventListener('click', () => {
     console.log(button.innerText)
 } ));
 */
 
-buttons.forEach(button => button.addEventListener('click', () => {
-    game(button);
-}));
+
 
 
 //console.log(result);
