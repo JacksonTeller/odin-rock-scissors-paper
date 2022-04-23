@@ -48,15 +48,22 @@ function game(playerSelection) {
     let result = playRound(playerSelection, computerSelection);
     rndResult.innerText = rndResult.innerText + " " + result;
 
+    //count and display the score
+    
     if (result.slice(0,7) === 'You win') {
         playerPoints++;
         humanScore.innerText = humanScore.innerText.replace(/\d/, playerPoints);
-        console.log(`You: ${playerPoints}\nComputer: ${computerPoints}`)
+        console.log(`You: ${playerPoints}\nComputer: ${computerPoints}`);
+        if (playerPoints === 5) rndResult.innerText = `You're a winner!`;
     } else if (result.slice(0,7) === 'You los') {
         computerPoints++
         pcScore.innerText = pcScore.innerText.replace(/\d/, computerPoints);
-        console.log(`You: ${playerPoints}\nComputer: ${computerPoints}`)
+        console.log(`You: ${playerPoints}\nComputer: ${computerPoints}`);
+        if (computerPoints === 5) rndResult.innerText = `You're a loser!`;
     }
+
+    //(playerPoints > computerPoints) ? console.log('You win!') : console.log('You lose!')
+    
 }
 
 let buttons = document.querySelectorAll("button");
@@ -84,5 +91,11 @@ let buttonR = document.querySelector('.r');
 
 buttonR.addEventListener('click', playRound);
 */
-
+/* else if (playerPoints === 5) {
+        rndResult.innerText = "You win!";
+        
+    } else if (computerPoints === 5) {
+        rndResult.innerText = "You lose!";
+        
+    } */
 
