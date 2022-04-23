@@ -9,8 +9,6 @@ function computerPlay () {
 //function that lets play a round of the game
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.innerText;
-    //playerSelection = playerSelection.toLowerCase();
-    //computerSelection = computerSelection.toLowerCase();
 
     if (playerSelection === 'Rock' && computerSelection === 'Paper') {
         return 'You lose! Paper beats Rock';
@@ -29,13 +27,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-let playerPoints = 0, computerPoints = 0;
-
-let humanScore = document.querySelector('.humanScore');
-let pcScore = document.querySelector('.pcScore');
-humanScore.innerText = humanScore.innerText + " " + playerPoints;
-pcScore.innerText = pcScore.innerText + " " + computerPoints;
-
 // the main game function
 function game(playerSelection) {
 
@@ -49,53 +40,40 @@ function game(playerSelection) {
     rndResult.innerText = rndResult.innerText + " " + result;
 
     //count and display the score
-    
-    if (result.slice(0,7) === 'You win') {
-        playerPoints++;
-        humanScore.innerText = humanScore.innerText.replace(/\d/, playerPoints);
-        console.log(`You: ${playerPoints}\nComputer: ${computerPoints}`);
-        if (playerPoints === 5) rndResult.innerText = `You're a winner!`;
-    } else if (result.slice(0,7) === 'You los') {
-        computerPoints++
-        pcScore.innerText = pcScore.innerText.replace(/\d/, computerPoints);
-        console.log(`You: ${playerPoints}\nComputer: ${computerPoints}`);
-        if (computerPoints === 5) rndResult.innerText = `You're a loser!`;
+    if (playerPoints >= 5) {
+        rndResult.innerText = `Reload the page to play again`;
+        buttons.forEach(button => button.removeEventListener('click', () =>{
+            game(button);
+        }));
+    } else if (computerPoints >= 5) {
+        rndResult.innerText = `Reload the page to play again`;
+        buttons.forEach(button => button.removeEventListener('click', () =>{
+            game(button);
+        }));
+    } else {
+        if (result.slice(0,7) === 'You win') {
+            playerPoints++;
+            humanScore.innerText = humanScore.innerText.replace(/\d/, playerPoints);
+            if (playerPoints >= 5) rndResult.innerText = `You're a winner!`;
+        } else if (result.slice(0,7) === 'You los') {
+            computerPoints++
+            pcScore.innerText = pcScore.innerText.replace(/\d/, computerPoints)
+            if (computerPoints >= 5) rndResult.innerText = `You're a loser!`;
+        }
     }
-
-    //(playerPoints > computerPoints) ? console.log('You win!') : console.log('You lose!')
-    
 }
 
-let buttons = document.querySelectorAll("button");
+//set the initial score
+let playerPoints = 0, computerPoints = 0;
 
+let humanScore = document.querySelector('.humanScore');
+let pcScore = document.querySelector('.pcScore');
+
+humanScore.innerText = humanScore.innerText + " " + playerPoints;
+pcScore.innerText = pcScore.innerText + " " + computerPoints;
+
+//start a game with a click
+let buttons = document.querySelectorAll("button");
 buttons.forEach(button => button.addEventListener('click', () => {
     game(button);
 }));
-
-
-//let playerPoints = document.querySelector('.humanScore');
-
-//console.log(playerPoints.innerText);
-
-
-
-
-/*
-buttons.forEach(button => button.addEventListener('click', () => {
-    console.log(button.innerText)
-} ));
-*/
-
-/*
-let buttonR = document.querySelector('.r');
-
-buttonR.addEventListener('click', playRound);
-*/
-/* else if (playerPoints === 5) {
-        rndResult.innerText = "You win!";
-        
-    } else if (computerPoints === 5) {
-        rndResult.innerText = "You lose!";
-        
-    } */
-
