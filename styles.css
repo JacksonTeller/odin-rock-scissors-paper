@@ -8,6 +8,7 @@ body {
     /* width: 100vw; */
 }
 
+/* buttons */
 button {
     font-size: 68px;
     padding: 50px 80px;
@@ -38,6 +39,7 @@ button {
     background-image: url(./images/paper.jpg);
 }
 
+/* results and scores */
 .rndResult {
     align-self: center;
     font-size: 42px;

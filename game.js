@@ -32,7 +32,7 @@ function game(playerSelection) {
 
     //display round result
     let rndResult = document.querySelector(".rndResult");
-    rndResult.innerText = "Round result:";
+    rndResult.innerText = "Round result: ";
     
     //get choices from player and computer
     let computerSelection = computerPlay();

@@ -1,4 +1,7 @@
 # odin-rock-scissors-paper
+This is a simple Rock-Scissors-Paper game. A user plays against computer until someone earns 5 points.
+
+I've made it as a part of The Odin Project exercises to practice my JS skills.
 
 pictures credits:
 Image by [emnuelht](https://pixabay.com/users/emnuelht-25796858/) from [Pixabay](https://pixabay.com/)
